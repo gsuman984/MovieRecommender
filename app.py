@@ -60,7 +60,7 @@ def recommend(movie):
 st.title("Movie Reccomender System")
 selected = st.selectbox("Enter Movie Name : ", movies['title'], help="List of 10 most similar movies will be recommended!")
 if st.button("Recommend"):
-    st.info("You Have Selected : ", icon='📌')
+    st.info("Your Selected Movie : ", icon='📌')
     movie_index = movies[movies['title']==selected].index[0]
     st.image(fetch_poster(movies['id'][movie_index]), width=120)
     st.write(selected)
