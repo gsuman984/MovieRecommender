@@ -6,7 +6,7 @@ import requests
 # unpickling movies dataframe and similarities array
 movies = pickle.load(open("movies.pkl", 'rb'))
 similarities = pickle.load(open("similarities.pkl", 'rb'))
-st.write(similarities.dtype)
+# st.write(similarities.dtype)
 # movie search engline
 def movie_search_engine(movie_name):
     L = []
