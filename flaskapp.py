@@ -96,4 +96,4 @@ def recommend_movie(movie):
         return redirect('/')
         pass
 
-app.run(debug=True)
+app.run(debug=False, host='0.0.0.0')
