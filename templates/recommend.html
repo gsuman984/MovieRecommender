@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %} MatchMovie | Home {% endblock %}
+
+{% block content_1 %}
+<div style='margin-top: 4rem;'> </div>
+{% endblock %}
+
+
+
+{% block content_2 %}
+
+<div class='container mt-3'>
+    {% if requested_movie %}
+    <div class="alert alert-primary" role="alert">
+      Your Selected Movie : 
+    </div>
+    <div class='row'>
+      <div class='col-1'></div>
+      <a class='col-2' href='/recommendations-{{requested_movie[0]}}' style='text-decoration: none; color:black;'>  
+        <img src="{{requested_movie[2]}}" class="rounded mx-auto d-block" alt="..." height="300" width="200">
+        <p class="text-center"> {{requested_movie[1]}} </p>
+      </a>
+    </div>
+    {% endif %}
+  </div>
+  
+  <div class='container mt-3'>
+    {% if recommended_movies %}
+    <div class="alert alert-primary" role="alert">
+      Recommended Movies :
+    </div>
+    <div class='row'>
+      <div class='col-1'></div>
+        {% for movie in recommended_movies[:5] %}
+        <a class='col-2' href='/recommendations-{{movie[0]}}' style='text-decoration: none; color:black;'>
+          <img src="{{movie[2]}}" class="rounded mx-auto d-block" alt="..." height="300" width="200">
+          <p class="text-center"> {{movie[1]}} </p>
+        </a>
+        {% endfor %}
+        <div class='col-1'></div>
+    </div>
+    <div class='row'>
+        <div class='col-1'></div>
+        {% for movie in recommended_movies[5:] %}
+        <a class='col-2' href='/recommendations-{{movie[0]}}' style='text-decoration: none; color:black;'>
+          <img src="{{movie[2]}}" class="rounded mx-auto d-block" alt="..." height="300" width="200">
+          <p class="text-center"> {{movie[1]}} </p>
+        </a>
+        {% endfor %}
+        <div class='col-1'></div>
+      </div>
+      {% endif %}
+      <div>
+{% endblock %}
